@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vargen Barber Club | Barbería Premium en Bogotá</title>
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #151515;
+            --text-light: #f5f5f5;
+            --text-muted: #a0a0a0;
+            /* Degradado basado en el aro del perfil de IG */
+            --accent-primary: #f09433;
+            --accent-secondary: #bc1888; 
+            --wa-color: #25D366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 5rem 1rem 4rem;
+            background: linear-gradient(to bottom, #1a1a1a, var(--bg-dark));
+            border-bottom: 2px solid transparent;
+            border-image: linear-gradient(to right, var(--accent-primary), var(--accent-secondary)) 1;
+        }
+
+        .logo-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            /* Borde simulando el degradado de Instagram */
+            background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+            padding: 4px;
+        }
+
+        .logo-inner {
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Aquí puedes reemplazar con la URL del logo del lobo */
+            background-image: url('https://via.placeholder.com/150/000000/FFFFFF?text=Logo+Vargen');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .hero p.subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        /* Botones */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-wa {
+            background-color: var(--wa-color);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-wa:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        /* Sección Testimonios */
+        .testimonials {
+            padding: 4rem 1rem;
+            text-align: center;
+            background-color: var(--bg-card);
+        }
+
+        .testimonials h2 {
+            margin-bottom: 2.5rem;
+            font-size: 2rem;
+            background: linear-gradient(to right, var(--text-light), var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background-color: var(--bg-dark);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #222;
+            text-align: left;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            color: #333;
+            font-family: serif;
+        }
+
+        .testimonial-card p {
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card strong {
+            color: var(--accent-primary);
+        }
+
+        /* Ubicación */
+        .location {
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .location h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .location p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* WhatsApp Flotante */
+        .wa-floating {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--wa-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+
+        .wa-floating:hover {
+            transform: scale(1.1);
+        }
+
+        .wa-floating svg {
+            width: 35px;
+            height: 35px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #050505;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p.subtitle { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Hero -->
+    <section class="hero">
+        <div class="logo-container">
+            <div class="logo-inner"></div>
+        </div>
+        <h1>Vargen Barber Club</h1>
+        <p class="subtitle">Barbería Premium • Estilo, precisión y experiencia</p>
+        
+        <!-- Enlace WA configurado para captar reservas -->
+        <a href="https://wa.me/573219849495?text=Hola,%20me%20gustaría%20reservar%20una%20cita%20en%20Vargen%20Barber%20Club." class="btn btn-wa" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 32 32" width="24" height="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16 2a13.93 13.93 0 00-11.85 21.36L2 30l6.81-2.07A13.9 13.9 0 0016 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm0 25.61c-2.3 0-4.52-.59-6.49-1.7l-.46-.27-4.8 1.46 1.48-4.66-.3-.49A11.45 11.45 0 014.54 16C4.54 9.68 9.68 4.54 16 4.54S27.46 9.68 27.46 16 22.32 27.61 16 27.61zm6.27-8.5c-.34-.17-2.03-1-2.35-1.12-.31-.11-.54-.17-.77.17-.22.34-.89 1.12-1.09 1.34-.2.23-.4.26-.74.09-.34-.17-1.45-.53-2.76-1.7-1.02-.91-1.71-2.04-1.91-2.38-.2-.34-.02-.53.15-.7.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.77-1.85-1.06-2.54-.27-.67-.55-.58-.77-.59h-.65c-.23 0-.6.09-.91.43-.31.34-1.2 1.17-1.2 2.85s1.23 3.3 1.4 3.52c.17.23 2.4 3.67 5.82 5.15 2.3.99 3.14 1.08 4.24.91 1.12-.17 2.03-.83 2.32-1.64.29-.8.29-1.48.2-1.64-.09-.14-.32-.23-.66-.4z"/></svg>
+            Reserva al WhatsApp
+        </a>
+    </section>
+
+    <!-- Testimonios Integrados en Landing -->
+    <section class="testimonials">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>La atención al detalle es increíble. El mejor corte y arreglo de barba que me han hecho en Bogotá. El espacio tiene mucho estilo.</p>
+                <strong>- Carlos M.</strong>
+            </div>
+            <div class="testimonial-card">
+                <p>Excelente servicio premium. Fui con mi hijo y la paciencia y profesionalismo de los barberos fue de primer nivel.</p>
+                <strong>- Andrés R.</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicación -->
+    <section class="location">
+        <h2>📍 Dónde estamos</h2>
+        <p><strong>Bogotá - Chapinero</strong></p>
+        <p>Calle 64 No. 7 - 55</p>
+        <p>CP: 110231, Colombia</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Vargen Barber Club. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/573219849495?text=Hola,%20quisiera%20saber%20disponibilidad%20para%20un%20corte." class="wa-floating" target="_blank" rel="noopener noreferrer" title="Reserva al WhatsApp">
+        <svg viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16 2a13.93 13.93 0 00-11.85 21.36L2 30l6.81-2.07A13.9 13.9 0 0016 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm0 25.61c-2.3 0-4.52-.59-6.49-1.7l-.46-.27-4.8 1.46 1.48-4.66-.3-.49A11.45 11.45 0 014.54 16C4.54 9.68 9.68 4.54 16 4.54S27.46 9.68 27.46 16 22.32 27.61 16 27.61zm6.27-8.5c-.34-.17-2.03-1-2.35-1.12-.31-.11-.54-.17-.77.17-.22.34-.89 1.12-1.09 1.34-.2.23-.4.26-.74.09-.34-.17-1.45-.53-2.76-1.7-1.02-.91-1.71-2.04-1.91-2.38-.2-.34-.02-.53.15-.7.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.77-1.85-1.06-2.54-.27-.67-.55-.58-.77-.59h-.65c-.23 0-.6.09-.91.43-.31.34-1.2 1.17-1.2 2.85s1.23 3.3 1.4 3.52c.17.23 2.4 3.67 5.82 5.15 2.3.99 3.14 1.08 4.24.91 1.12-.17 2.03-.83 2.32-1.64.29-.8.29-1.48.2-1.64-.09-.14-.32-.23-.66-.4z"/></svg>
+    </a>
+
+    <script>
+        // Trackeo opcional de clics en WhatsApp para tus campañas
+        document.querySelectorAll('.btn-wa, .wa-floating').forEach(button => {
+            button.addEventListener('click', () => {
+                console.log('Lead originado hacia WhatsApp registrado');
+                // Aquí podrías insertar eventos de Meta Pixel o Google Analytics
+                // fbq('track', 'Contact');
+            });
+        });
+    </script>
+</body>
+</html>
